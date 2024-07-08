@@ -25,12 +25,16 @@ const Header = () => {
             </span>
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            {localStorage.getItem('auth-token')?<button onClick={()=>{
+              localStorage.removeItem('auth-token');
+              window.location.replace('/');
+            }}>Logout</button>:
             <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-             <Link to='/login'> Login</Link>
-            </button>
+            type="button"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+           <Link to='/login'> Login</Link>
+          </button>}
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
